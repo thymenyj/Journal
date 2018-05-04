@@ -17,10 +17,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         EntryDatabase db = EntryDatabase.getInstance(getApplicationContext());
-//
-//        ListAdapter listAdapter = new ListAdapter(this, R.layout.entry_row);
-//        ListView listView = findViewById(R.id.listview);
-//        listView.setAdapter(listAdapter);
+
+        EntryAdapter adapter = new EntryAdapter(getApplicationContext(), );
+        ListView listView = findViewById(R.id.listview);
+        listView.setAdapter(adapter);
     }
 
     public void onButtonClicked(View v) {
@@ -29,20 +29,20 @@ public class MainActivity extends AppCompatActivity {
         startActivity(myIntent);
     }
 
+
+    private class OnItemClickListener implements AdapterView.OnItemClickListener {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        }
+    }
+
+    private class OnItemLongClickListener implements AdapterView.OnItemLongClickListener {
+        @Override
+        public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+            EntryDatabase.delete();
+            return false;
+        }
+    }
 }
-
-//    private class OnItemClickListener implements AdapterView.OnItemClickListener {
-//        @Override
-//        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//
-//        }
-//    }
-//
-//    private class OnItemLongClickListener implements AdapterView.OnItemLongClickListener {
-//        @Override
-//        public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-//            return false;
-//        }
-//    }
-
 

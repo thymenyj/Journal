@@ -4,15 +4,14 @@ import java.io.Serializable;
 
 public class JournalEntry implements Serializable {
     int id;
-
-    String name;
+    String title;
     String content;
     String mood;
     float timestamp;
 
-    public JournalEntry(int id, String name, String content, String mood, float timestamp) {
+    public JournalEntry(int id, String title, String content, String mood, float timestamp) {
         this.id = id;
-        this.name = name;
+        this.title = title;
         this.content = content;
         this.mood = mood;
         this.timestamp = timestamp;
@@ -26,12 +25,10 @@ public class JournalEntry implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
+    public String getTitle() { return title; }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getContent() {

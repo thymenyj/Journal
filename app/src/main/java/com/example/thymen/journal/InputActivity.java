@@ -11,9 +11,10 @@ public class InputActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input);
     }
-//
-//    private class onClick(){
-//
-//    }
+
+    public void addEntry() {
+
+
+    }
 
 }
