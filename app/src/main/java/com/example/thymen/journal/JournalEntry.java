@@ -58,4 +58,5 @@ public class JournalEntry implements Serializable {
         this.timestamp = timestamp;
     }
 
+
 }

@@ -15,31 +15,28 @@ public class EntryDatabase extends SQLiteOpenHelper {
     }
 
     private static EntryDatabase instance;
-    public static EntryDatabase getInstance(Context) {
-        if (instance != null) {
-            return instance;
+    public static EntryDatabase getInstance(Context context) {
+        if (instance == null) {
+            instance = new EntryDatabase(context, "fucku", null, 1 );
         }
-        else {
-            instance = EntryDatabase(Context);
-            return instance;
-        }
+        return instance;
     }
-//
-//    @Override
-//    public void onCreate(SQLiteDatabase db) {
-//       db.execSQL("create table entries(id INTEGER PRIMARY KEY AUTOINCREMENT,title TEXT, content TEXT, mood TEXT, timestamp DATETIME ));
-//    }
-//
-//    @Override
-//    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-//        db.execSQL("DROP TABLE IF EXISTS " + "entries");
-//        onCreate(db);
-//    }
-//
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+       db.execSQL("create table entries (id INTEGER PRIMARY KEY AUTOINCREMENT,title TEXT, content TEXT, mood TEXT, timestamp DATETIME )");
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + "entries");
+        onCreate(db);
+    }
+
 //    public void selectAll(){
 //        getWritableDatabase();
 //        rawQuery = ("SELECT * FROM entries WHERE title = ? AND content = ? AND mood = ? AND timestamp = ?", new String[] {"id", "1984", "Fiction","Sad", "1"} )
 //
 //    }
-//
+
 }
